@@ -40,3 +40,95 @@ Math.sqrt(64); // returns 8
 
 // Math.abs(): 무조건 양수로 반환
 Math.abs(-4.7); // returns 4.7
+
+// Math.min(), Math.max(): 가장 작은 값을 반환, 가장 큰 값을 반환
+Math.min(0, 150, 30, 20, -8, -200); // returns -200
+Math.max(0, 150, 30, 20, -8, -200); // returns 150
+
+// Math.random(): 0보다 크고 1보다 작은 숫자형 값을 반환
+Math.random(); // 랜덤 숫자 반환
+
+Math.floor(Math.random() * 10); // 0에서 9 사이의 정수
+Math.floor(Math.random() * 101); // 0에서 100 사이의 정수
+Math.floor(Math.random() * 10) + 1; // 1에서 10 사이의 정수
+
+function getRndInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+// 실습: 가위바위보 게임 만들기
+function getRandomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function rspPlayer(userRsp) {
+    const rsp = ["가위", "바위", "보"]
+    const playerRsp = rsp[getRandomInteger(0, 2)]
+}
+
+if (userRsp== playerRsp) {
+    retrun {
+        userRsp: userRsp,
+        playerRsp: playerRsp,
+        winner: 0,
+    };
+} else if (userRsp == "가위") {
+    if (playerRsp == "보") {
+        return {
+            userRsp: userRsp,
+            playerRsp: playerRsp,
+            winner: 0,
+        };
+    } else {
+        return {
+            userRsp: userRsp,
+            playerRsp: playerRsp,
+            winner: -1,
+        };
+    }
+} else if (userRsp == "바위") {
+    if (playerRsp == "가위") {
+        return {
+            userRsp: userRsp,
+            playerRsp: playerRsp,
+            winner: 1,
+        };
+    } else {
+        return {
+            userRsp: userRsp,
+            playerRsp: playerRsp,
+            winner: -1,
+        };
+    }
+} else if (userRsp == "보") {
+    if (playerRsp == "바위") {
+        return {
+            userRsp: userRsp,
+            playerRsp: playerRsp,
+            winner: 1,
+        };
+    } else {
+        return {
+            userRsp: userRsp,
+            playerRsp: playerRsp,
+            winner: -1,
+        }
+    }
+}
+
+function rspPlayer2(userRsp) {
+    const rsp = ["가위", "바위", "보"];
+    const playerRsp = rsp[getRandomInteger(0, 2)];
+    const winValue = {
+        가위: "보",
+        바위: "가위",
+        보: "바위",
+    };
+    
+    return {
+        userRsp: userRsp,
+        playerRsp: playerRsp,
+        winner:
+            userRsp= playerRsp ? 0 : winValue[userRsp] == playerRsp ? 1 : -1,
+    };
+}
