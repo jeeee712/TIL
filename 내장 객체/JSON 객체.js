@@ -22,4 +22,8 @@ let text =
   ' { "firstName": "Anna", "lastName": "Smith" }, ' +
   '{"firstName":"Peter", "lastName":Jones"} ]}';
 
-let obj = JSON.parse(text); // 문자열 형태의 JSON
+let obj = JSON.parse(text); // 문자열 형태의 JSON을 Object 객체로 변환
+
+// JSON 객체의 2가지 내장 함수
+// JSON.stringfy - 데이터를 서버로 전송하기 위해서는 데이터 형태를 문자열 형태로 변환해야 한다. JSON.stringfy는 Object 데이터를 문자열로 반환해 준다.
+// JSON.parse - 서버로부터 응답받은 데이터는 문자열 형태이다. JSON.parse 함수를 사용하면 자바스크립트 Object 객체로 변환해 준다.
