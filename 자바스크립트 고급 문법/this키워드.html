@@ -1,0 +1,53 @@
+<!-- this에 window 객체가 바인딩 된 경우 -->
+<!-- <script> 태그 루트와 <script> 안에 선언된 함수 내에서 this는 window 객체가 된다. -->
+<!-- this 키워드가 window 객체이므로 window 객체 내외 모든 내장 함수를 사용할 수 있다. -->
+<script>
+  console.log(this); // window 객체 function myFunction(){" "}
+  {
+    console.log(this); // window 객체
+  }
+  myFunction();
+</script>
+
+<!-- this에 DOM 요소가 바인딩 된 경우 -->
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Document</title>
+  </head>
+  <body>
+    <button type="button" onclick="this.style.backgroundColor='red'">
+      클릭
+    </button>
+    <button type="button" onclick="callFunc(this);">클릭2</button>
+    <select onchange="changeSelect(this);">
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+    </select>
+    <script>
+      function changeSelect(obj) {
+        console.log(obj); // <button> 태그를 클릭할 때마다 onclick 이벤트가 발생되고, 이때 호출하는 함수에 this를 파라미터로 전달하면, this는 자동으로 현재 이벤트가 발생한 <button> 태그 그 자체가 된다.
+      }
+
+      function changeSelect(obj) {
+        console.log(obj.value); // <select> 태그에서 선택이 바뀔 때마다 onchange 이벤트가 발생되고, 이때 호출하는 함수에 this를 파라미터로 전달하면, this는 자동으로 현재 이벤트가 발생한 <select> 태그 그 자체가 된다.
+      }
+    </script>
+  </body>
+</html>
+
+<!-- this에 Object 객체가 바인딩된 경우 -->
+<!-- Object 내에 이미 키로 선언되어 사용 중인 다른 데이터를 활용해서 만들 수 있는 새로운 데이터를 정의해서 사용하기 위해 쓰임 -->
+<script>
+  let person = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function () {
+      return this.firstName + " " + this.lastName; // object에서는 키에 대한 값으로 함수를 선언하면, 함수 내에서 object의 다른 키를 접근할 때는 this 키워드를 사용한다.
+      // 이때 this는 object 그 자체(여기서는 person)가 되기 때문에 this 키워드를 통해 object에 저장된 키로 접근할 수 있게 된다.
+    },
+  };
+
+  console.log(person.fullName()); // John Doe
+</script>
