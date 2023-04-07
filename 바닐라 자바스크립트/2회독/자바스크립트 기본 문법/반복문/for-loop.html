@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <label for="id">
+      아이디를 입력하세요. (6자가 넘어가면 안 됩니다.)<input
+        type="text"
+        id="ID"
+      />
+    </label>
+
+    <script>
+      let id = document.getElementById(ID);
+      if (id.length > 6) {
+        console.log("id를 확인해주세요.");
+      }
+    </script>
+  </body>
+</html>
