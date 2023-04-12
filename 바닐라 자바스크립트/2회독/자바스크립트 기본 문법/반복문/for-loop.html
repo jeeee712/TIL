@@ -8,38 +8,23 @@
   </head>
   <body>
     <script>
-      let userList = [
-        {
-          firstName: "재석",
-          lastName: "유",
-          email: "yu@gmail.com",
-        },
-        {
-          firstName: "종국",
-          lastName: "김",
-          email: "kim@gmail.com",
-        },
-        {
-          firstName: "세찬",
-          lastName: "양",
-          email: "yang@gmail.com",
-        },
-        {
-          firstName: "석진",
-          lastName: "지",
-          email: "ji@gmail.com",
-        },
-      ];
+      let data = {
+        employees: [
+          { firstName: "John", lastName: "Doe" },
+          { firstName: "Anna", lastName: "Smith" },
+          { firstName: "Peter", lastName: "Jones" },
+        ],
+      };
 
-      let userList2 = userList.map(function (user) {
-        return {
-          fullName: user.lastName + user.firstName,
-          lastName: user.lastName,
-          firstName: user.firstName,
-          email: user.email,
-        };
-      });
-      console.log(userList2);
+      let stringValue = JSON.stringify(data); // 객체를 문자열로 변환
+
+      let text =
+        '{"employees": [' +
+        '{"firstName": "John", "lastName": "Doe"},' +
+        '{"firstName": "Anna", "lastName": "Smith"},' +
+        '{"firstName": "Peter", "lastName": "Jones"} ]}';
+
+      let obj = JSON.parse(text); // 문자열 형태의 JSON을 Object 객체로 변환
     </script>
   </body>
 </html>
